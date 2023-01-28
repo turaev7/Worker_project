@@ -1,0 +1,54 @@
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+      ,
+      initial-scale="1.0"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    {% extends 'base.html' %}
+    {% load static %}
+
+    <title>Workers</title>
+  </head>
+  {% block content %}
+  <body>
+
+
+    <div class="container">
+      <div class="row g-3">
+        {% for i in work %}
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card my-3">
+            <img src="{{ i.worker_pic.url }}" alt="" class="card-img-top p-2" />
+            <div class="card-body">
+              <h5 class="card-title">Worker's name: {{ i.worker_name }}</h5>
+              <p class="card-text">Worker's rate: {{i.worker_staff}}</p>
+              <p class="card-text">Born: {{i.worker_age}}</p>
+              <p class="card-text">Date of starting job: {{i.added}}</p>
+
+              <p class="card-text">Address: {{ i.worker_adress }}</p>
+
+            </div>
+          </div>
+        </div>
+        {% endfor%}
+      </div>
+    </div>
+  </body>
+
+  {% endblock content %}
+</html>
